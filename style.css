@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+
+  background-color: #E5E5E5;
+
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  gap: 19.2rem;
+  
+  max-width: 82rem;
+}
+
+main section:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.timer, .controls {
+  display: flex;
+}
+
+
+.controls {
+ gap: 4rem;
+}
+
+.timer span {
+  font-size: 12.62rem;
+  line-height: 14.8rem;
+  color: #323238;
+}
+
+.controls button {
+  border: none;
+  background: transparent;
+
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.controls button img {
+  width: 100%;
+}
+
+
+.options {
+  display: grid;
+  gap: 3.2rem;
+  grid-template-areas: 'A B'
+  'C D';
+
+  width: 100%;
+}
+
+.options button:nth-child(1){
+  grid-area: A;
+}
+.options button:nth-child(2){
+  grid-area: B;
+}
+.options button:nth-child(3){
+  grid-area: C;
+}
+.options button:nth-child(4){
+  grid-area: D;
+}
+
+.options button {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 4.8rem;
+
+  max-width: 13.8rem;
+
+  background: #E1E1E6;
+  border-radius: 2.4rem;
+  border: none;
+
+}
+
+button.active {
+  background-color: #02799D;
+}
