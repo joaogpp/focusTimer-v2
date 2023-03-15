@@ -34,6 +34,10 @@ main section:first-child {
   max-width: 32.1rem;
 }
 
+button {
+  cursor: pointer;
+}
+
 .timer, .controls {
   display: flex;
 
@@ -41,9 +45,6 @@ main section:first-child {
 
 }
 
-.container {
-  padding: 0 6rem;
-}
 
 .controls {
  gap: 4rem;
@@ -97,9 +98,9 @@ main section:first-child {
   justify-content: center;
   align-items: center;
   
-  padding: 4.8rem;
+  padding: 4.6rem;
 
-  width: clamp(8rem, 9rem + 4vw, 13.8rem);
+  width: clamp(8rem, 6rem + 4vw, 13.8rem);
   height: clamp(7rem, 10rem + 3vh, 15.2rem) ;
 
   background:  #c4c4c7;
@@ -109,11 +110,15 @@ main section:first-child {
 }
 
 .options img {
-  width: clamp(3rem, 3rem + 1vw, 5.6rem);
+  width: clamp(3rem, 3rem + 2vw, 5.6rem);
 }
 
 button.active {
   background-color: #02799D;
+}
+
+.hide {
+  display: none;
 }
 
 @media (max-width: 60rem) {
@@ -132,5 +137,15 @@ button.active {
   .options {
     grid-template-areas: 'A B '
     'C D';
+  }
+
+  main {
+    margin-bottom: 10rem;
+
+    gap: 3.5rem;
+  }
+
+  main section:first-child {
+    gap: 2rem;
   }
 }

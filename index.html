@@ -19,13 +19,16 @@
     <main>
       <section>
         <div class="timer">
-          <span>25</span>
+          <span id="minutes">25</span>
           <span>:</span>
-          <span>00</span>
+          <span id="seconds">00</span>
         </div>
         <div class="controls">
           <button class="play">
             <img src="./images/play.svg" alt="">
+          </button>
+          <button class="pause hide">
+            <img src="./images/pause.svg" alt="">
           </button>
           <button class="stop">
             <img src="./images/stop.svg" alt="">
@@ -40,16 +43,16 @@
       </section>
       <section>
         <div class="options">
-          <button>
+          <button class="forest">
             <img src="./images/forest.svg" alt="">
           </button>
-          <button class="active">
+          <button class="rain active">
             <img src="./images/rain.svg" alt="">
           </button>
-          <button>
+          <button class="market">
             <img src="./images/market.svg" alt="">
           </button>
-          <button>
+          <button class="fire">
             <img src="./images/fire.svg" alt="">
           </button>
         </div>
@@ -57,6 +60,6 @@
     </main>
 
   </div>
-  
+  <script src="./js/index.js" type="module"></script>
 </body>
 </html>
