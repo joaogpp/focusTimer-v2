@@ -16,7 +16,7 @@ body {
 
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 100vh; 
 }
 
 main {
@@ -24,26 +24,33 @@ main {
   align-items: center;
   gap: 19.2rem;
   
-  max-width: 82rem;
 }
 
 main section:first-child {
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
+
+  max-width: 32.1rem;
 }
 
 .timer, .controls {
   display: flex;
+
+  width: clamp(20rem, 20rem + 10vw, 32.1rem);
+
 }
 
+.container {
+  padding: 0 6rem;
+}
 
 .controls {
  gap: 4rem;
 }
 
 .timer span {
-  font-size: 12.62rem;
+  font-size: clamp(8rem, 8rem + 4vw, 12.61rem);
   line-height: 14.8rem;
   color: #323238;
 }
@@ -52,12 +59,12 @@ main section:first-child {
   border: none;
   background: transparent;
 
-  width: 4.8rem;
+  width: 4.8rem                                         ;
   height: 4.8rem;
 }
 
 .controls button img {
-  width: 100%;
+  width: 100%
 }
 
 
@@ -83,6 +90,7 @@ main section:first-child {
   grid-area: D;
 }
 
+
 .options button {
 
   display: flex;
@@ -91,14 +99,38 @@ main section:first-child {
   
   padding: 4.8rem;
 
-  max-width: 13.8rem;
+  width: clamp(8rem, 9rem + 4vw, 13.8rem);
+  height: clamp(7rem, 10rem + 3vh, 15.2rem) ;
 
-  background: #E1E1E6;
+  background:  #c4c4c7;
   border-radius: 2.4rem;
   border: none;
 
 }
 
+.options img {
+  width: clamp(3rem, 3rem + 1vw, 5.6rem);
+}
+
 button.active {
   background-color: #02799D;
+}
+
+@media (max-width: 60rem) {
+  main {
+    flex-direction: column;
+
+    gap: 6rem;
+  }
+
+  .options {
+    grid-template-areas: 'A B C D';
+  }
+} 
+
+@media (max-width: 45rem) {
+  .options {
+    grid-template-areas: 'A B '
+    'C D';
+  }
 }
