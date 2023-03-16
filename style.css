@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -10,23 +10,21 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 500;
 
-  background-color: #E5E5E5;
-
-  display: grid;
+  height: 100vh;
   place-items: center;
-  height: 100vh; 
+  display: grid;
 }
 
 main {
   display: flex;
+  gap: 19rem;
+  max-height: 33.6rem;
+
   align-items: center;
-  gap: 19.2rem;
-  
 }
 
-main section:first-child {
+main section.timer {
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
@@ -34,118 +32,96 @@ main section:first-child {
   max-width: 32.1rem;
 }
 
-button {
-  cursor: pointer;
-}
-
-.timer, .controls {
+.time {
   display: flex;
-
-  width: clamp(20rem, 20rem + 10vw, 32.1rem);
-
 }
 
-
-.controls {
- gap: 4rem;
-}
-
-.timer span {
-  font-size: clamp(8rem, 8rem + 4vw, 12.61rem);
+.time span {
+  font-weight: 500;
+  font-size: 12.6rem;
   line-height: 14.8rem;
   color: #323238;
 }
 
-.controls button {
-  border: none;
-  background: transparent;
+main .controls {
+  display: flex;
+  gap: 4rem;
+}
 
-  width: 4.8rem                                         ;
+main .controls button {
+  border: none;
+  background-color: transparent;
+  width: 4.8rem;
   height: 4.8rem;
 }
 
-.controls button img {
-  width: 100%
-}
-
-
-.options {
+main section.sounds {
   display: grid;
-  gap: 3.2rem;
+
   grid-template-areas: 'A B'
   'C D';
+  gap: 3rem;
 
-  width: 100%;
 }
 
-.options button:nth-child(1){
+.sounds button:nth-child(1){
   grid-area: A;
 }
-.options button:nth-child(2){
+
+.sounds button:nth-child(2){
   grid-area: B;
 }
-.options button:nth-child(3){
+
+.sounds button:nth-child(3){
   grid-area: C;
 }
-.options button:nth-child(4){
+
+.sounds button:nth-child(4){
   grid-area: D;
 }
 
-
-.options button {
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  padding: 4.6rem;
-
-  width: clamp(8rem, 6rem + 4vw, 13.8rem);
-  height: clamp(7rem, 10rem + 3vh, 15.2rem) ;
-
-  background:  #c4c4c7;
-  border-radius: 2.4rem;
+main section.sounds button{
   border: none;
+  background: #E1E1E6;
+  border-radius: clamp(1rem, 0.5rem + 2vw, 2.4rem);
 
+  width: clamp(3rem, 3rem + 8vw, 13.8rem);
+  height: clamp(3rem, 3rem + 9vw, 15.2rem);
+
+  transition: all .2s;
 }
 
-.options img {
-  width: clamp(3rem, 3rem + 2vw, 5.6rem);
+
+.sounds button img {
+  height: clamp(1rem, 1rem + 4vw, 5.6rem);
 }
 
-button.active {
+main section.sounds button.active{
   background-color: #02799D;
 }
 
-.hide {
-  display: none;
+.sounds button:hover {
+  background-color: #02799D;
 }
 
-@media (max-width: 60rem) {
+@media (max-width: 800px) {
   main {
     flex-direction: column;
+    gap: 8rem;
 
-    gap: 6rem;
+    height: 100rem;
+
+    padding: 3rem;
+
+    margin-top: -10rem;
   }
 
-  .options {
+  main section.sounds {
     grid-template-areas: 'A B C D';
-  }
-} 
-
-@media (max-width: 45rem) {
-  .options {
-    grid-template-areas: 'A B '
-    'C D';
+  
   }
 
-  main {
-    margin-bottom: 10rem;
-
-    gap: 3.5rem;
-  }
-
-  main section:first-child {
-    gap: 2rem;
+  main section.timer {
+    gap: 1.5rem;
   }
 }

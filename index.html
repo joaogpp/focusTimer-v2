@@ -5,7 +5,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FocusTimer 2.0</title>
 
@@ -15,51 +14,34 @@
   
 </head>
 <body>
-  <div class="container">
     <main>
-      <section>
-        <div class="timer">
+      <section class="timer">
+        <div class="time">
           <span id="minutes">25</span>
           <span>:</span>
           <span id="seconds">00</span>
         </div>
         <div class="controls">
-          <button class="play">
-            <img src="./images/play.svg" alt="">
-          </button>
-          <button class="pause hide">
-            <img src="./images/pause.svg" alt="">
-          </button>
-          <button class="stop">
-            <img src="./images/stop.svg" alt="">
-          </button>
-          <button class="addTime">
-            <img src="./images/+.svg" alt="">
-          </button>
-          <button class="removeTime">
-            <img src="./images/-.svg" alt="">
-          </button>
+          <button id="play"><img src="./images/play.svg" alt=""></button>
+          <button id="stop"><img src="./images/stop.svg" alt=""></button>
+          <button id="addTime"><img src="./images/+.svg" alt=""></button>
+          <button id="removeTime"><img src="./images/-.svg" alt=""></button>
         </div>
       </section>
-      <section>
-        <div class="options">
-          <button class="forest">
-            <img src="./images/forest.svg" alt="">
-          </button>
-          <button class="rain active">
-            <img src="./images/rain.svg" alt="">
-          </button>
-          <button class="market">
-            <img src="./images/market.svg" alt="">
-          </button>
-          <button class="fire">
-            <img src="./images/fire.svg" alt="">
-          </button>
-        </div>
+      <section class="sounds">
+        <button id="forest">
+          <img src="./images/forest.svg" alt="">
+        </button>
+        <button id="rain" class="active">
+          <img src="./images/rain.svg" alt="">
+        </button>
+        <button id="coffee">
+          <img src="./images/coffee.svg" alt="">
+        </button>
+        <button id="fire">
+          <img src="./images/fire.svg" alt="">
+        </button>
       </section>
     </main>
-
-  </div>
-  <script src="./js/index.js" type="module"></script>
 </body>
 </html>

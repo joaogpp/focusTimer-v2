@@ -1,17 +1,3 @@
-const btnPlay = document.querySelector('.play')
-const btnPause = document.querySelector('.pause')
-const btnStop = document.querySelector('.stop')
-const btnAddTime = document.querySelector('.addTime')
-const btnRemoveTime = document.querySelector('.removeTime')
-
-const btnForest = document.querySelector('.forest')
-const btnRain = document.querySelector('.rain')
-const btnMarket = document.querySelector('.market')
-const btnFire = document.querySelector('.fire')
-
-const minutesDisplay = document.querySelector('#minutes')
-const secondsDisplay = document.querySelector('#seconds')
-
 let minutes = Number(minutesDisplay.textContent)
 let seconds = 0
 
@@ -73,6 +59,8 @@ btnPlay.addEventListener('click', () => {
 
   btnPlay.classList.add('hide')
   btnPause.classList.remove('hide')
+  btnAddTime.classList.add('hide')
+  btnRemoveTime.classList.add('hide')
   countdown()
 })
 
@@ -80,6 +68,8 @@ btnPause.addEventListener('click', pause)
 
 btnStop.addEventListener('click', () => {
   pause()
+  btnAddTime.classList.remove('hide')
+  btnRemoveTime.classList.remove('hide')
   updateDisplay(minutes, seconds)
 })
 
