@@ -11,9 +11,13 @@
 body {
   font-family: 'Roboto', sans-serif;
 
-  height: 100vh;
+  min-height: 100vh;
   place-items: center;
   display: grid;
+}
+
+.hide {
+  display: none;
 }
 
 main {
@@ -85,23 +89,23 @@ main section.sounds button{
   background: #E1E1E6;
   border-radius: clamp(1rem, 0.5rem + 2vw, 2.4rem);
 
-  width: clamp(3rem, 3rem + 8vw, 13.8rem);
-  height: clamp(3rem, 3rem + 9vw, 15.2rem);
+  width: clamp(2rem, 3rem + 8vw, 13.8rem);
+  height: clamp(2rem, 3rem + 9vw, 15.2rem);
 
-  transition: all .2s;
+  transition: hover .2s;
 }
 
 
-.sounds button img {
+.sounds button svg {
   height: clamp(1rem, 1rem + 4vw, 5.6rem);
 }
 
-main section.sounds button.active{
+.sounds button:hover{
   background-color: #02799D;
 }
 
-.sounds button:hover {
-  background-color: #02799D;
+.sounds button:hover path{
+  fill: white;
 }
 
 @media (max-width: 800px) {

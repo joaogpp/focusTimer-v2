@@ -1,5 +1,18 @@
-let minutes = Number(minutesDisplay.textContent)
-let seconds = 0
+import {    
+  btnPlay,
+  btnPause,
+  btnStop,
+  btnAddTime,
+  btnRemoveTime,
+  btnForest,
+  btnRain,
+  btnMarket,
+  btnFire,
+  minutesDisplay,
+  secondsDisplay,
+} from './elements.js'
+
+let initialMinutes = minutesDisplay.textContent
 
 let timerTimeout
 
@@ -9,73 +22,86 @@ function updateDisplay(minutes, seconds) {
 }
 
 function countdown() {
-
-  let minutes = minutesDisplay.textContent
-  let seconds = secondsDisplay.textContent
-
   timerTimeout = setTimeout(() => {
 
-    if (minutes <= 0 && seconds <= 0) {
+    let minutes = minutesDisplay.textContent
+    let seconds = secondsDisplay.textContent
+
+    let isFinished = minutes <= 0 && seconds <= 0
+
+
+    if(isFinished) {
       resetControls()
       return
     }
-    
-    if(seconds <= 0) {
-      seconds = 3
 
+    if (seconds <= 0) {
+      seconds = 2
       --minutes
     }
 
+
     updateDisplay(minutes, seconds - 1)
-  
+
     countdown()
+
   }, 1000)
 }
 
 function resetControls() {
   btnPause.classList.add('hide')
   btnPlay.classList.remove('hide')
+  btnAddTime.classList.remove('hide')
+  btnRemoveTime.classList.remove('hide')
+  
 }
 
 function pause() {
-  
-  btnPause.classList.add('hide')
-  btnPlay.classList.remove('hide')
-
-  clearTimeout(timerTimeout)
-
-
+  clearTimeout(timerTimeout)  
 }
 
 function addTime() {
-  let newMinutes
-
-  newMinutes += 5
-
-  return newMinutes
+  let newMinutes = Number(minutesDisplay.textContent)
+  updateDisplay(newMinutes + 1, secondsDisplay.textContent)
 }
 
-btnPlay.addEventListener('click', () => {  
+function removeTime() {
+  let newMinutes = Number(minutesDisplay.textContent)
 
+  if(newMinutes > 0) {
+    updateDisplay(newMinutes - 1, '0')
+  }
+}
+
+function resetTimer() {
+  resetControls()
+  pause()
+  updateDisplay(initialMinutes, '0')
+}
+
+
+btnPlay.addEventListener('click', () => {
   btnPlay.classList.add('hide')
   btnPause.classList.remove('hide')
-  btnAddTime.classList.add('hide')
   btnRemoveTime.classList.add('hide')
+  btnAddTime.classList.add('hide')
   countdown()
 })
 
-btnPause.addEventListener('click', pause)
-
-btnStop.addEventListener('click', () => {
+btnPause.addEventListener('click', () => {
+  btnPause.classList.add('hide')
+  btnPlay.classList.remove('hide')
   pause()
-  btnAddTime.classList.remove('hide')
-  btnRemoveTime.classList.remove('hide')
-  updateDisplay(minutes, seconds)
 })
 
 btnAddTime.addEventListener('click', () => {
+  addTime()
+})
 
-  let minutes = Number(minutesDisplay.textContent)
+btnRemoveTime.addEventListener('click', () => {
+  removeTime()
+})
 
-  updateDisplay(String(minutes + 5), seconds)
+btnStop.addEventListener('click', () => {
+  resetTimer()
 })
