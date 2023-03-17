@@ -1,107 +1,44 @@
 import {    
   btnPlay,
   btnPause,
-  btnStop,
   btnAddTime,
   btnRemoveTime,
   btnForest,
   btnRain,
-  btnMarket,
+  btnCoffee,
   btnFire,
   minutesDisplay,
   secondsDisplay,
 } from './elements.js'
 
-let initialMinutes = minutesDisplay.textContent
+import Controls from './controls.js'
 
-let timerTimeout
+import Timer from './timer.js'
 
-function updateDisplay(minutes, seconds) {
-  minutesDisplay.textContent = String(minutes).padStart(2, '0')
-  secondsDisplay.textContent = String(seconds).padStart(2, '0')
-}
+import Sounds from './sounds.js'
 
-function countdown() {
-  timerTimeout = setTimeout(() => {
+import Events from './events.js'
 
-    let minutes = minutesDisplay.textContent
-    let seconds = secondsDisplay.textContent
-
-    let isFinished = minutes <= 0 && seconds <= 0
-
-
-    if(isFinished) {
-      resetControls()
-      return
-    }
-
-    if (seconds <= 0) {
-      seconds = 2
-      --minutes
-    }
-
-
-    updateDisplay(minutes, seconds - 1)
-
-    countdown()
-
-  }, 1000)
-}
-
-function resetControls() {
-  btnPause.classList.add('hide')
-  btnPlay.classList.remove('hide')
-  btnAddTime.classList.remove('hide')
-  btnRemoveTime.classList.remove('hide')
-  
-}
-
-function pause() {
-  clearTimeout(timerTimeout)  
-}
-
-function addTime() {
-  let newMinutes = Number(minutesDisplay.textContent)
-  updateDisplay(newMinutes + 1, secondsDisplay.textContent)
-}
-
-function removeTime() {
-  let newMinutes = Number(minutesDisplay.textContent)
-
-  if(newMinutes > 0) {
-    updateDisplay(newMinutes - 1, '0')
-  }
-}
-
-function resetTimer() {
-  resetControls()
-  pause()
-  updateDisplay(initialMinutes, '0')
-}
-
-
-btnPlay.addEventListener('click', () => {
-  btnPlay.classList.add('hide')
-  btnPause.classList.remove('hide')
-  btnRemoveTime.classList.add('hide')
-  btnAddTime.classList.add('hide')
-  countdown()
+const sounds = Sounds({
+  btnForest,
+  btnRain,
+  btnCoffee,
+  btnFire
 })
 
-btnPause.addEventListener('click', () => {
-  btnPause.classList.add('hide')
-  btnPlay.classList.remove('hide')
-  pause()
+const controls = Controls({
+  btnPlay,
+  btnPause,
+  btnAddTime,
+  btnRemoveTime
 })
 
-btnAddTime.addEventListener('click', () => {
-  addTime()
+const timer = Timer({
+  minutesDisplay,
+  secondsDisplay,
+  resetControls: controls.reset,
+  timeEnd: sounds.timeEnd
 })
 
-btnRemoveTime.addEventListener('click', () => {
-  removeTime()
-})
+Events({controls, timer, sounds})
 
-btnStop.addEventListener('click', () => {
-  resetTimer()
-})

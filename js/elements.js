@@ -5,7 +5,7 @@
   const btnRemoveTime = document.querySelector('#removeTime')
   const btnForest = document.querySelector('#forest')
   const btnRain = document.querySelector('#rain')
-  const btnMarket = document.querySelector('#coffee')
+  const btnCoffee = document.querySelector('#coffee')
   const btnFire = document.querySelector('#fire') 
   const minutesDisplay = document.querySelector('#minutes')
   const secondsDisplay = document.querySelector('#seconds')
@@ -18,7 +18,7 @@
     btnRemoveTime,
     btnForest,
     btnRain,
-    btnMarket,
+    btnCoffee,
     btnFire,
     minutesDisplay,
     secondsDisplay
