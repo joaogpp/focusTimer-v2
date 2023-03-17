@@ -9,6 +9,8 @@
   const btnFire = document.querySelector('#fire') 
   const minutesDisplay = document.querySelector('#minutes')
   const secondsDisplay = document.querySelector('#seconds')
+  const btnLight = document.querySelector('#light')
+  const btnNight = document.querySelector('#night')
 
   export {
     btnPlay,
@@ -21,6 +23,8 @@
     btnCoffee,
     btnFire,
     minutesDisplay,
-    secondsDisplay
+    secondsDisplay,
+    btnLight,
+    btnNight,
   }
  

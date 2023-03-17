@@ -30,7 +30,11 @@ const controls = Controls({
   btnPlay,
   btnPause,
   btnAddTime,
-  btnRemoveTime
+  btnRemoveTime,
+  btnCoffee,
+  btnForest,
+  btnRain,
+  btnFire
 })
 
 const timer = Timer({

@@ -2,7 +2,11 @@ export default function ({
   btnPause,
   btnPlay,
   btnAddTime,
-  btnRemoveTime
+  btnRemoveTime,
+  btnCoffee,
+  btnFire,
+  btnForest,
+  btnRain
 }) {
 
   function reset() {
@@ -24,10 +28,18 @@ export default function ({
     btnAddTime.classList.add('hide')
   }
 
+  function removeActiveClass() {
+    btnCoffee.classList.remove('active')
+    btnFire.classList.remove('active')
+    btnRain.classList.remove('active')
+    btnForest.classList.remove('active')
+  }
+
   return {
     reset,
     pause,
-    disableControls
+    disableControls,
+    removeActiveClass
   }
 
 }

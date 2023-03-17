@@ -8,6 +8,8 @@ import {
   btnRain,
   btnCoffee,
   btnFire,
+  btnLight,
+  btnNight,
 } from './elements.js'
 
 export default function ({
@@ -15,7 +17,7 @@ export default function ({
   timer,
   sounds,
 }) {
-
+  
   btnPlay.addEventListener('click', () => {
     sounds.pressButton()
     controls.disableControls()
@@ -44,6 +46,10 @@ export default function ({
   })
   
   btnForest.addEventListener('click', () => {
+
+    controls.removeActiveClass()
+    btnForest.classList.add('active')
+    
     sounds.playForest()
     sounds.disableCoffee()
     sounds.disableFire()
@@ -51,6 +57,10 @@ export default function ({
   })
   
   btnRain.addEventListener('click', () => {
+
+    controls.removeActiveClass()
+    btnRain.classList.add('active')
+
     sounds.playRain()
     sounds.disableCoffee()
     sounds.disableFire()
@@ -58,6 +68,10 @@ export default function ({
   })
   
   btnCoffee.addEventListener('click', () => {
+
+    controls.removeActiveClass()
+    btnCoffee.classList.add('active')
+
     sounds.playCoffee()
     sounds.disableFire()
     sounds.disableForest()
@@ -65,9 +79,18 @@ export default function ({
   })
   
   btnFire.addEventListener('click', () => {
+
+    controls.removeActiveClass()
+    btnFire.classList.add('active')
     sounds.playFire()
     sounds.disableCoffee()
     sounds.disableForest()
     sounds.disableRain()
   })
+
+  btnLight.addEventListener('click', () => {
+    btnLight.classList.add('hide')
+    btnNight.classList.remove('hide')
+  })
+
 }
