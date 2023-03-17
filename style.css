@@ -70,6 +70,47 @@ main section.sounds {
 
 }
 
+.sounds button {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.sounds button input {
+
+  appearance: none;
+  height: 4px;
+  width: 9rem;
+
+  background-color: #323238;
+  
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: #323238;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.sounds button:hover input[type=range]::-webkit-slider-thumb,
+.sounds button:hover input {
+  background-color: white;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: #323238;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
 .sounds button:nth-child(1){
   grid-area: A;
 }
