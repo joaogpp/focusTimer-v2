@@ -9,6 +9,10 @@ import {
   btnFire,
   minutesDisplay,
   secondsDisplay,
+  body,
+  span,
+  sectionControls,
+  btnSounds
 } from './elements.js'
 
 import Controls from './controls.js'
@@ -34,7 +38,11 @@ const controls = Controls({
   btnCoffee,
   btnForest,
   btnRain,
-  btnFire
+  btnFire,
+  body,
+  span,
+  sectionControls,
+  btnSounds
 })
 
 const timer = Timer({

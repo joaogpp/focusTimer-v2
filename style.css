@@ -73,7 +73,7 @@ main section.sounds {
 .sounds button {
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: clamp(1.2rem, 1.2rem + 2vw, 3.2rem);
   justify-content: center;
   align-items: center;
 }
@@ -82,19 +82,33 @@ main section.sounds {
 
   appearance: none;
   height: 4px;
-  width: 9rem;
+  width: clamp(1rem, 1rem + 5vw, 9rem);
 
   background-color: #323238;
   
 }
 
 input[type=range]::-webkit-slider-thumb {
-  height: 1.6rem;
-  width: 1.6rem;
+  height: clamp(0.1rem, 0.1rem + 2vw, 1.6rem);
+  width: clamp(0.1rem, 0.1rem + 2vw, 1.6rem);
   border-radius: 50%;
   background: #323238;
   cursor: pointer;
   -webkit-appearance: none;
+}
+
+.sounds button.active input {
+
+  appearance: none;
+  height: 4px;
+  width: clamp(1rem, 1rem + 5vw, 9rem);
+
+  background-color: white;
+  
+}
+
+.sounds button.active input[type=range]::-webkit-slider-thumb {   
+  background: white;
 }
 
 .sounds button:hover input[type=range]::-webkit-slider-thumb,
@@ -102,14 +116,6 @@ input[type=range]::-webkit-slider-thumb {
   background-color: white;
 }
 
-input[type=range]::-webkit-slider-thumb {
-  height: 1.6rem;
-  width: 1.6rem;
-  border-radius: 50%;
-  background: #323238;
-  cursor: pointer;
-  -webkit-appearance: none;
-}
 
 .sounds button:nth-child(1){
   grid-area: A;
@@ -127,9 +133,9 @@ input[type=range]::-webkit-slider-thumb {
   grid-area: D;
 }
 
-main section.sounds button{
+ section.sounds button{
   border: none;
-  background: #E1E1E6;
+  
   border-radius: clamp(1rem, 0.5rem + 2vw, 2.4rem);
 
   width: clamp(2rem, 3rem + 8vw, 13.8rem);
@@ -189,4 +195,38 @@ main section.sounds button{
   main section.timer {
     gap: 1.5rem;
   }
+}
+
+
+body.dark {
+  background-color: black;
+}
+
+span.dark {
+  color: white;
+}
+
+.controls.dark button svg path {
+  fill: #C4C4CC;
+}
+
+main .sounds button.dark {
+  background-color: #29292E;
+}    
+
+main .sounds button:hover.dark {
+  background-color: #0A3442;
+}
+
+main .sounds button.dark svg path{
+  fill: #C4C4CC;
+}
+
+.sounds button.dark input {
+
+  background-color: #FFFFFF;
+}
+
+main .sounds button.dark input[type=range]::-webkit-slider-thumb {
+  background: #FFFFFF;
 }

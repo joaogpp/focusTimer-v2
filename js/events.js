@@ -10,6 +10,7 @@ import {
   btnFire,
   btnLight,
   btnNight,
+  body
 } from './elements.js'
 
 export default function ({
@@ -47,9 +48,14 @@ export default function ({
   
   btnForest.addEventListener('click', () => {
 
-    controls.removeActiveClass()
-    btnForest.classList.add('active')
-    
+    if (body.classList.contains('dark')){
+      btnForest.classList.add('active-dark')
+    } else {
+      controls.removeActiveClass()
+      btnForest.classList.add('active')
+    }
+
+
     sounds.playForest()
     sounds.disableCoffee()
     sounds.disableFire()
@@ -79,7 +85,6 @@ export default function ({
   })
   
   btnFire.addEventListener('click', () => {
-
     controls.removeActiveClass()
     btnFire.classList.add('active')
     sounds.playFire()
@@ -91,6 +96,15 @@ export default function ({
   btnLight.addEventListener('click', () => {
     btnLight.classList.add('hide')
     btnNight.classList.remove('hide')
+
+    controls.handleMode()
+  })
+
+  btnNight.addEventListener('click', () => {
+    btnNight.classList.add('hide')
+    btnLight.classList.remove('hide')
+    
+    controls.handleMode()
   })
 
 }

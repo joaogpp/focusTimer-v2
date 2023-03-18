@@ -11,6 +11,10 @@
   const secondsDisplay = document.querySelector('#seconds')
   const btnLight = document.querySelector('#light')
   const btnNight = document.querySelector('#night')
+  const body = document.querySelector('body')
+  const span = document.querySelectorAll('span')
+  const sectionControls = document.querySelector('.controls')
+  const btnSounds = document.querySelectorAll('main .sounds button')
 
   export {
     btnPlay,
@@ -26,5 +30,9 @@
     secondsDisplay,
     btnLight,
     btnNight,
+    body,
+    span,
+    sectionControls,
+    btnSounds
   }
  

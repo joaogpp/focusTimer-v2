@@ -6,7 +6,11 @@ export default function ({
   btnCoffee,
   btnFire,
   btnForest,
-  btnRain
+  btnRain,
+  body,
+  sectionControls,
+  span,
+  btnSounds
 }) {
 
   function reset() {
@@ -35,11 +39,27 @@ export default function ({
     btnForest.classList.remove('active')
   }
 
+  function handleMode() {
+
+    body.classList.toggle('dark')
+    
+    for(let i = 0; i < span.length; i++){
+      span[i].classList.toggle('dark')
+    }
+    
+    sectionControls.classList.toggle('dark')
+
+    for(let i = 0; i < btnSounds.length; i++){
+      btnSounds[i].classList.toggle('dark')
+    }
+  }
+
   return {
     reset,
     pause,
     disableControls,
-    removeActiveClass
+    removeActiveClass,
+    handleMode
   }
 
 }
