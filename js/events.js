@@ -10,7 +10,7 @@ import {
   btnFire,
   btnLight,
   btnNight,
-  body
+  inputRange,
 } from './elements.js'
 
 export default function ({
@@ -47,14 +47,11 @@ export default function ({
   })
   
   btnForest.addEventListener('click', () => {
+    controls.hiddenInput()
+    inputRange[0].classList.remove('hidden')
 
-    if (body.classList.contains('dark')){
-      btnForest.classList.add('active-dark')
-    } else {
-      controls.removeActiveClass()
-      btnForest.classList.add('active')
-    }
-
+    controls.removeActiveClass()
+    btnForest.classList.add('active')
 
     sounds.playForest()
     sounds.disableCoffee()
@@ -63,6 +60,9 @@ export default function ({
   })
   
   btnRain.addEventListener('click', () => {
+
+    controls.hiddenInput()
+    inputRange[1].classList.remove('hidden')
 
     controls.removeActiveClass()
     btnRain.classList.add('active')
@@ -75,6 +75,9 @@ export default function ({
   
   btnCoffee.addEventListener('click', () => {
 
+    controls.hiddenInput()
+    inputRange[2].classList.remove('hidden')
+
     controls.removeActiveClass()
     btnCoffee.classList.add('active')
 
@@ -85,8 +88,13 @@ export default function ({
   })
   
   btnFire.addEventListener('click', () => {
+
+    controls.hiddenInput()
+    inputRange[3].classList.remove('hidden')
+
     controls.removeActiveClass()
     btnFire.classList.add('active')
+
     sounds.playFire()
     sounds.disableCoffee()
     sounds.disableForest()

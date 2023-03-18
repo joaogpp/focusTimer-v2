@@ -10,7 +10,8 @@ export default function ({
   body,
   sectionControls,
   span,
-  btnSounds
+  btnSounds,
+  inputRange
 }) {
 
   function reset() {
@@ -39,6 +40,20 @@ export default function ({
     btnForest.classList.remove('active')
   }
 
+  function removeActiveDark() {
+    btnCoffee.classList.remove('active-dark')
+    btnFire.classList.remove('active-dark')
+    btnRain.classList.remove('active-dark')
+    btnForest.classList.remove('active-dark')
+  }
+
+
+  function hiddenInput() {
+    for(let i = 0; i < inputRange.length; i++){
+      inputRange[i].classList.add('hidden')
+    }
+  }
+
   function handleMode() {
 
     body.classList.toggle('dark')
@@ -52,6 +67,18 @@ export default function ({
     for(let i = 0; i < btnSounds.length; i++){
       btnSounds[i].classList.toggle('dark')
     }
+
+    for(let i = 0; i < btnSounds.length; i++) {
+      if(btnSounds[i].classList.contains('active')) {
+        let item = i
+        removeActiveClass()
+        btnSounds[item].classList.add('active-dark')
+      } else if(btnSounds[i].classList.contains('active-dark')) {
+        let itemdark = i
+        removeActiveDark()
+        btnSounds[itemdark].classList.add('active')
+      }
+    }
   }
 
   return {
@@ -59,7 +86,8 @@ export default function ({
     pause,
     disableControls,
     removeActiveClass,
-    handleMode
+    handleMode,
+    hiddenInput,
   }
 
 }

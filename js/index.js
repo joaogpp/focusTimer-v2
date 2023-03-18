@@ -12,7 +12,8 @@ import {
   body,
   span,
   sectionControls,
-  btnSounds
+  btnSounds,
+  inputRange
 } from './elements.js'
 
 import Controls from './controls.js'
@@ -42,7 +43,8 @@ const controls = Controls({
   body,
   span,
   sectionControls,
-  btnSounds
+  btnSounds,
+  inputRange
 })
 
 const timer = Timer({

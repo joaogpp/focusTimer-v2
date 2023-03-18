@@ -218,6 +218,10 @@ main .sounds button:hover.dark {
   background-color: #0A3442;
 }
 
+main .sounds button.active-dark {
+  background-color: #0A3442;
+}
+
 main .sounds button.dark svg path{
   fill: #C4C4CC;
 }
@@ -229,4 +233,8 @@ main .sounds button.dark svg path{
 
 main .sounds button.dark input[type=range]::-webkit-slider-thumb {
   background: #FFFFFF;
+}
+
+.sounds input.hidden {
+  opacity: 0;
 }

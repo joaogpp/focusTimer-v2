@@ -15,6 +15,7 @@
   const span = document.querySelectorAll('span')
   const sectionControls = document.querySelector('.controls')
   const btnSounds = document.querySelectorAll('main .sounds button')
+  const inputRange = document.querySelectorAll('.sounds input')
 
   export {
     btnPlay,
@@ -33,6 +34,7 @@
     body,
     span,
     sectionControls,
-    btnSounds
+    btnSounds,
+    inputRange
   }
  
