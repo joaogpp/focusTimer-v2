@@ -30,7 +30,7 @@ export default function ({
       }
   
       if (seconds <= 0) {
-        seconds = 2
+        seconds = 60
         --minutes
       }
   
