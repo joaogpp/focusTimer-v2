@@ -1,11 +1,24 @@
 
 export default function () {
+  
   const buttonPressForest = new Audio('../sounds/floresta.wav')
   const buttonPressRain = new Audio('../sounds/chuva.wav')
   const buttonPressCoffee = new Audio('../sounds/cafeteria.wav')
   const buttonPressFire = new Audio('../sounds/lareira.wav')
   const buttonPressAudio = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true")
   const kitchenTimer = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true")
+
+  buttonPressForest.loop = true
+  buttonPressRain.loop = true
+  buttonPressCoffee.loop = true
+  buttonPressFire.loop = true
+
+  let audios = [
+    buttonPressForest,
+    buttonPressRain,
+    buttonPressCoffee, 
+    buttonPressFire
+  ]
 
   function playForest() {
     buttonPressForest.play()
@@ -47,6 +60,13 @@ export default function () {
     kitchenTimer.play()
   }
 
+  function pauseAudio() {
+    disableForest()
+    disableRain()
+    disableCoffee()
+    disableFire()
+  }
+
   return {
     playForest,
     disableForest,
@@ -57,6 +77,8 @@ export default function () {
     playFire,
     disableFire,
     pressButton,
-    timeEnd
+    timeEnd,
+    audios,
+    pauseAudio
   }
 }

@@ -35,6 +35,6 @@
     span,
     sectionControls,
     btnSounds,
-    inputRange
+    inputRange,
   }
  

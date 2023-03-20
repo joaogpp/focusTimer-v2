@@ -11,7 +11,7 @@ export default function ({
   sectionControls,
   span,
   btnSounds,
-  inputRange
+  inputRange,
 }) {
 
   function reset() {
@@ -88,6 +88,7 @@ export default function ({
     removeActiveClass,
     handleMode,
     hiddenInput,
+    removeActiveDark
   }
 
 }

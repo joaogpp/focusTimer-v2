@@ -16,10 +16,6 @@ body {
   display: grid;
 }
 
-.hide {
-  display: none;
-}
-
 main {
   display: flex;
   gap: 19rem;
